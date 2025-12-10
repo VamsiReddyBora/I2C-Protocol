@@ -94,8 +94,9 @@ int main(void){
 	if(I2STAT == 0x18){
 		EEPROM_Location(0x00,0x0A);  // (HigherByte, LowerByte) 16-bit EEPROM address
 	}
-	
-	I2CONCLR = (1 << SI);
+
+	// Uncomment this line if RESTART is not appear on the BUS. 
+	//I2CONCLR = (1 << SI);
 	Start_I2C(); 									 //Repeated start
 	
 	//Sending Slave address + Read mode, to read a byte from Slave without leaving the BUS
@@ -147,3 +148,4 @@ int main(void){
 
   while (1);                              // Super loop
 }
+
